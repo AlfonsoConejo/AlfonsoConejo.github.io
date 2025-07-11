@@ -162,9 +162,9 @@ export class Gasto {
             contenedor.innerHTML = '';
 
             let tabla = `
-                <h1>Gastos</h1>
+                <h2>Gastos</h2>
 
-                <div class="wrapperTablaGastos>
+                <div class="wrapperTablaGastos">
 
                     <table class="tablaGastos">
                         <tr>
