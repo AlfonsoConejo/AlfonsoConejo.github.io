@@ -161,16 +161,19 @@ export class Gasto {
             // Limpiamos el contenedor para evitar duplicados
             contenedor.innerHTML = '';
 
-
             let tabla = `
-                <table class="tablaGastos">
-                    <tr>
-                        <th>Concepto</th>
-                        <th>Monto</th>
-                        <th>Categoria</th>
-                        <th>Fecha</th>
-                        <th>Editar</th>
-                    </tr>
+                <h1>Gastos</h1>
+
+                <div class="wrapperTablaGastos>
+
+                    <table class="tablaGastos">
+                        <tr>
+                            <th>Concepto</th>
+                            <th>Monto</th>
+                            <th>Categoria</th>
+                            <th>Fecha</th>
+                            <th>Editar</th>
+                        </tr>
                 
             `;
 
@@ -212,7 +215,7 @@ export class Gasto {
             });
 
             // Cerramos la tabla
-            tabla += contenidoFilas + '</table>';
+            tabla += contenidoFilas + '</table> </div>';
             
             // Asignamos todo el contenido al contenedor
             contenedor.innerHTML = tabla;

@@ -368,6 +368,10 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
     justify-content: flex-end;
   }
 
+  .wrapperTablaGastos{
+    overflow-x: auto;
+  }
+
   .tablaGastos{
     border-collapse: collapse;
     border: 1px solid black;
