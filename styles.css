@@ -1,5 +1,6 @@
 /* VARIABLES: Paleta de colores */
 :root {
+    --color-texto: #fff;
     --color-fondo: #213448;
     --color-fondo-modal:#213448;
     --color-tarjeta:#547792;
@@ -57,6 +58,7 @@
 
 
   .modo-claro{
+    --color-texto: #000;
     --color-fondo: #f0f3f8;
     --color-fondo-modal:#f0f3f8;
     --color-tarjeta:#FFFFFF;
@@ -275,11 +277,7 @@
     width: 100%;
     font-size: 1rem;
     font-family: var(--font-main);
-
-    /* Desactiva el estilo nativo */
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    color: #000;
   }
   
   input:focus, select:focus {
