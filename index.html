@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" type="image/x-icon" href="./assets/coin_icon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" defer src="script.js"></script>
+    <title>Control de Gastos</title>
+</head>
+<body>    
+    <div class="container">
+
+        <!-- Sección de título -->
+        <div class="titulo">
+            <h1>Control de Gastos Personales</h1>
+            <button id="cambiarTema">
+                <i class="bi bi-moon"></i>
+            </button>
+        </div> 
+        <!-- Sección de presupuesto -->
+        <div class="card consumo" id="mostrarPresupuesto">
+            <div>
+                <div class="presupuesto-tile-flexbox">
+                    <h2>Presupuesto disponible</h2>
+                    <button class="presupuesto-button" id="abrirModalPresupuesto">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                </div>
+                <div class="limite-excedido" id="alerta-limite" style="display: none;">⚠️ Has excedido tu presupuesto mensual.</div>
+                <div class="presupuesto-contenedor" id="presupuesto-contenedor">
+                    <div class="presupuesto-consumido" id="presupuesto-consumido">
+                        <span >$0</span>
+                        <div class="barra-contenedor">
+                            <div class="barra-progreso" id="barra-progreso">
+                            </div>
+                        </div>
+                        <span id="lblPresupuesto"></span>
+                    </div>
+                    <div class="sm-light-card consumo" id="alerta-sin-presupuesto">Sin presupuesto disponible</div>
+                    <span class="lblGastoTotal" id="lblGastoTotal"></span>
+                </div>
+            </div>
+        </div>
+
+       <!-- Modal para inserción de presupuesto--> 
+        <div id="modalPresupuesto" class="modal">
+            <div class="modalEstilo">
+                <div class="buttonCloseRight">
+                    <h3>Nuevo presupuesto</h3>
+                    <span id="cerrarModalPrespuesto" class="cerrarModal">&times;</span>
+                </div>
+                
+                <input type="text" id="presupuestoInput" inputmode="numeric" pattern="[0-9]*" placeholder="$0.00">
+                <div class="modalButtonContainer">
+                    <button id="guardarPresupuesto" class="modalBotonGuardar">Guardar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nuevo gasto -->
+        <div class="card consumo">
+        <h2>Nuevo Gasto</h2> 
+        <div class="linea-formulario">
+            <div class="form-icon">
+                <i class="bi bi-chat-left"></i>
+            </div>  
+            <input id="inputDescripcion" type="text" placeholder="Descripción"/>
+        </div>
+
+        <div class="linea-formulario">
+            <div class="form-icon">
+                <i class="bi bi-cash"></i>
+            </div>  
+            <input id="inputMonto" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="$0.00" value="$0.00"/>
+        </div>
+
+        <div class="linea-formulario">
+            <div class="form-icon">
+                <i class="bi bi-collection"></i>
+            </div>   
+            <select name="select" id="categoria-gasto">
+            </select>
+        </div>
+
+        <div class="linea-formulario">
+            <div class="form-icon">
+                <i class="bi bi-calendar"></i>
+            </div>
+            <input
+            type="date"
+            id="fecha-gasto"
+            name="fecha-gasto" />
+        </div>
+
+        <button id="guardarGasto">Guardar</button>
+        </div>
+
+        <div class="consumo light-card" id="contenedorGastos">
+        </div>
+
+        <!--Botón restablecer-->
+        <div class="conteneadorRestablecer">
+            <button class="botonRestablecer" id="borrarTodo">Restablecer información</button>
+        </div>
+
+        <!--Modal para confirmar restablecimiento-->
+        <div id="modalRestablecer" class="modal">
+            <div class="modalEstilo">
+                <div class="buttonCloseRight">
+                    <h3>Eliminar informacion</h3>
+                    <span id="cerrarModalRestablecer" class="cerrarModal">&times;</span>
+                </div>
+                
+                <div class="modalButtonContainer">
+                    <button id="eliminarDatos" class="botonRestablecer">Eliminar</button>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal para editar gasto-->
+        <div id="modalEditar" class="modal">
+            <div class="modalEstilo">
+                <div class="buttonCloseRight">
+                    <h3>Editar gasto</h3>
+                    <span id="cerrarModalEditar" class="cerrarModal">&times;</span>
+                </div>
+                
+                <div class="linea-formulario">
+                    <div class="form-icon">
+                        <i class="bi bi-chat-left"></i>
+                    </div>  
+                    <input id="inputDescripcionModal" type="text" placeholder="Descripción"/>
+                </div>
+
+                <div class="linea-formulario">
+                    <div class="form-icon">
+                        <i class="bi bi-cash"></i>
+                    </div>  
+                    <input id="inputMontoModal" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="$0.00" value="$0.00"/>
+                </div>
+
+                <div class="linea-formulario">
+                    <div class="form-icon">
+                        <i class="bi bi-collection"></i>
+                    </div>   
+                    <select name="select" id="categoria-gasto-modal">
+                    </select>
+                </div>
+
+                <div class="linea-formulario">
+                    <div class="form-icon">
+                        <i class="bi bi-calendar"></i>
+                    </div>
+                    <input
+                    type="date"
+                    id="fecha-gasto-modal"
+                    name="fecha-gasto" />
+                </div>
+                
+                <div class="modalButtonContainer">
+                    <button id="actualizarGasto" class="modalBotonGuardar">Actualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
