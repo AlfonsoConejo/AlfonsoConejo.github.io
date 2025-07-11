@@ -11,6 +11,7 @@
     --color-boton-modal-hover:#547792;
     --color-texto-boton-modal:#547792;
     --color-tarjeta-gastos:#ECEFCA;
+    --color-formulario-outline: FFFFFF;
     --color-formulario-outline-focus:#94B4C1;
     --color-formulario-focus:#ECEFCA;
     --color-white: #ffffff;
@@ -69,6 +70,7 @@
     --color-boton-modal-hover:#213448;
     --color-texto-boton-modal:#FFFFFF;
     --color-tarjeta-gastos:#ccd1e5;
+    --color-formulario-outline: #000;
     --color-formulario-outline-focus:#547792;
     --color-formulario-focus:#ccd1e5;
     color: black;
@@ -283,6 +285,10 @@
     color: #000;
     height: 43px;
   }
+
+  input {
+    outline: 2px solid var(--color-formulario-outline);
+  }
   
   input:focus, select:focus {
     outline: 2px solid var(--color-formulario-outline-focus);
@@ -295,6 +301,7 @@ input[type="date"] {
   appearance: none;
   -webkit-appearance: none;
   background-color: var(--color-white);
+  outline: 2px solid var(--color-formulario-outline);
   color: #213448;
   padding: 0.75rem 1rem;
   border-radius: 10px;
