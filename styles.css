@@ -281,7 +281,7 @@
     font-size: 1rem;
     font-family: var(--font-main);
     color: #000;
-    width: 43px;
+    height: 43px;
   }
   
   input:focus, select:focus {
