@@ -275,6 +275,11 @@
     width: 100%;
     font-size: 1rem;
     font-family: var(--font-main);
+
+    /* Desactiva el estilo nativo */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
   }
   
   input:focus, select:focus {
