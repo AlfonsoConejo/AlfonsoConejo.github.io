@@ -2,9 +2,17 @@
 <html lang="es">
 <head>
     <link rel="icon" type="image/x-icon" href="./assets/coin_icon.ico">
-    <meta name="color-scheme" content="light dark">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    (function () {
+      const tema = localStorage.getItem("tema");
+      if (tema === "claro") {
+        document.documentElement.classList.add("modo-claro");
+      }
+    })();
+  </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles.css">
