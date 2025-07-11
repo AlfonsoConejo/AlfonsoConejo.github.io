@@ -18,7 +18,7 @@
     --color-warning: #E4C94F;
     --color-danger: #E14D4D;
     --font-main: 'Inter', sans-serif;
-  }
+}
   
   /* RESET BÁSICO */
   * {
@@ -159,6 +159,7 @@
   .hide{
     display: none;
   }
+
   .consumo {
     text-align: center;
     width: 100%;
@@ -176,9 +177,11 @@
     justify-content: center; /* centra horizontalmente */
     margin-bottom: 1rem;
   }
+
   .presupuesto-tile-flexbox > h2{
     margin: 0px;
   }
+
   .presupuesto-button{
     display: flex;       /* activa flexbox */
     align-items: center; /* centra verticalmente */
@@ -278,6 +281,7 @@
     font-size: 1rem;
     font-family: var(--font-main);
     color: #000;
+    width: 43px;
   }
   
   input:focus, select:focus {
