@@ -479,4 +479,11 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
   padding-left: 0.8rem;
   padding-right: 0.8rem;
  }
+
+}
+
+@media (max-width: 628px) {
+  .tablaGastos button:first-of-type {
+    margin-bottom: 3px;
+  }
 }
