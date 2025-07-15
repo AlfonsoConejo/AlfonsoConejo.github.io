@@ -459,10 +459,24 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
 }
 
 @media (max-width: 800px) {
+
+  h1{
+    font-size: 2rem;
+  }
+
+  h2{
+    font-size: 1.3rem;
+  }
+
  .titulo > button{
   display: none;
  }
  .aux-theme-button{
   display: flex;
+ }
+
+ body{
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
  }
 }
