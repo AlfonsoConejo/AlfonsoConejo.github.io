@@ -172,7 +172,7 @@ export class Gasto {
                             <th>Monto</th>
                             <th>Categoria</th>
                             <th>Fecha</th>
-                            <th>Editar</th>
+                            <th style="width:17%">Editar</th>
                         </tr>
                 
             `;
