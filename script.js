@@ -42,9 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
   fechaGastoPicker.value = fechaActual; // El datepicker la entiende y la muestra
 
 
-  //Event listener para cambiar entre modo claro y modo oscuro
-  const botonTema = document.getElementById('cambiarTema');
-  botonTema.addEventListener('click', Utils.cambiarTema);
+  //Cargamos la función que permite cambiar el tema
+  Utils.cambiarTema();
 
   //Tomamos los datos que fueron ingresados al formulario de gastos
   

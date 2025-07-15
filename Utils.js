@@ -124,45 +124,56 @@ function normalizarMonto(monto){
 
 //Cambiamos el tema del sitio
 function cargarTema(){
-    const botonTema = document.getElementById('cambiarTema');
+    //Obtenemos todos los botone con la clase .cambiarTema
+    const botonesCambiarTema = document.querySelectorAll('.cambiarTema');
+
     // Obtiene el tema actual
     let temaActual = localStorage.getItem('tema') || '';
-    
     //Carga el modo claro
     if (temaActual === 'claro'){
-        botonTema.innerHTML = '<i class="bi bi-moon"></i>';
         document.body.classList.add('modo-claro');
-        botonTema.classList.remove('botonCambiarTema');
+        botonesCambiarTema.forEach(btn => {
+            btn.innerHTML = '<i class="bi bi-moon"></i>';
+            btn.classList.remove('botonCambiarTema');
+        });
     } 
     //Carga el modo oscuro
     else{
-        botonTema.innerHTML = '<i class="bi bi-sun"></i>';
         document.body.classList.remove('modo-claro');
-        botonTema.classList.add('botonCambiarTema');
-    } 
+        botonesCambiarTema.forEach(btn => {
+            btn.innerHTML = '<i class="bi bi-sun"></i>';
+            btn.classList.add('botonCambiarTema');
+        }); 
+    }
 }
 
 //Cargamos el tema actual
 function cambiarTema(){
     //Obtenemos el boton de cambio de tema
-    const botonTema = document.getElementById('cambiarTema');
-    // Obtiene el tema actual
-    let temaActual = localStorage.getItem('tema') || '';
+    document.querySelectorAll('.cambiarTema').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Obtiene el tema actual
+            let temaActual = localStorage.getItem('tema') || '';
+
+            //Carga al modo oscuro
+            if (temaActual === 'claro'){
+                btn.innerHTML = '<i class="bi bi-sun"></i>'; 
+                document.body.classList.remove('modo-claro');
+                localStorage.setItem('tema','oscuro');
+                btn.classList.add('botonCambiarTema');
+            } 
+            //Carga al modo claro
+            else{
+                btn.innerHTML = '<i class="bi bi-moon"></i>';
+                document.body.classList.add('modo-claro');
+                localStorage.setItem('tema','claro');
+                btn.classList.remove('botonCambiarTema');       
+            } 
+        });
+    });
     
-    //Carga al modo oscuro
-    if (temaActual === 'claro'){
-        botonTema.innerHTML = '<i class="bi bi-sun"></i>'; 
-        document.body.classList.remove('modo-claro');
-        localStorage.setItem('tema','oscuro');
-        botonTema.classList.add('botonCambiarTema');
-    } 
-    //Carga al modo claro
-    else{
-        botonTema.innerHTML = '<i class="bi bi-moon"></i>';
-        document.body.classList.add('modo-claro');
-        localStorage.setItem('tema','claro');
-        botonTema.classList.remove('botonCambiarTema');       
-    }    
+    
+       
 }
 
 export default {
