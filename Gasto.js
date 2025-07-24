@@ -261,7 +261,6 @@ export class Gasto {
             alertaSinPresupuesto.style.display = "block";
             etiquetaGastoTotal.style.display = "none";
 
-            etiquetaPresupuesto.textContent = '$0.00';
             Gasto.actualizarBarraPresupuesto(0, barraProgresoPresupuesto, alertaLimite);
             console.log('No hay presupuesto');
         } 

@@ -151,6 +151,7 @@
   }
 
     .sm-light-card {
+    display: none;
     background-color: var(--color-tarjeta-gastos);
     color:#213448;
     padding: 0.5rem;
@@ -160,7 +161,7 @@
   }
 
   .lblGastoTotal{
-    display: block;
+    display: none;
     margin-top: 0.5rem;
   }
 
@@ -180,7 +181,7 @@
   }
 
   .presupuesto-consumido{
-    display: flex;
+    display: none;
     gap: 1rem;
   }
 

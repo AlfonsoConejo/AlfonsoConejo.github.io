@@ -7,6 +7,25 @@ function limpiarFormulario(inputDescripcion, inputMonto, inputCategoria, inputFe
     inputFecha.value = fechaActual;
 }
 
+//Escogemos qué elementos se muestran al cargar la página
+function mostrarContenedorPresupuesto() {
+    //Obtenemos los elementos que hay dentro del contenedore
+    const presupuestoConsumido = document.getElementById('presupuesto-consumido');
+    const alertaSinPresupuesto = document.getElementById('alerta-sin-presupuesto');
+    const etiquetaGastoTotal = document.getElementById('lblGastoTotal');
+    //Verificamos si ya hay un presupuesto almacenado
+    let presupuesto = JSON.parse(localStorage.getItem('valorPresupuesto')) || 0;
+    if(presupuesto != 0){
+        presupuestoConsumido.style.display = 'flex';
+        alertaSinPresupuesto.style.display = 'none';
+        etiquetaGastoTotal.style.display = 'block';
+    } else{
+        presupuestoConsumido.style.display = 'none';
+        alertaSinPresupuesto.style.display = 'block';
+        etiquetaGastoTotal.style.display = 'none';
+    }
+}
+
 function calcularFechaActual(){
     //Obtenemos la fecha del día de hoy en formato dd-mm-aa
     const hoy = new Date();
@@ -178,6 +197,7 @@ function cambiarTema(){
 
 export default {
     limpiarFormulario,
+    mostrarContenedorPresupuesto,
     calcularFechaActual,
     convertirFechaDMA,
     mostrarPresupuesto,

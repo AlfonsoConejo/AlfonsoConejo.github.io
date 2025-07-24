@@ -4,7 +4,9 @@ import Utils from './Utils.js'; // ruta relativa al archivo
 // Ejecutamos en cuanto cargue el sitio web
 document.addEventListener("DOMContentLoaded", function () {
 
-
+  // Mostramos elementos necesarios del contenedor de presuesto
+  Utils.mostrarContenedorPresupuesto();
+  
   //Calculamos el porcentaje usado del presupuesto
   Gasto.calcularPresupuestoConsumido();
 
@@ -140,24 +142,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //Acción de guardar un nuevo presupuesto
   function guardarPresupuesto() {
-    //Si el usuario no ha ingresado ningún valor
-    if (inputPresupuesto.value=== '$0.00'){
-      //Coloreamos el borde del campo de color rojo
-      inputPresupuesto.classList.add('borde-rojo');
-    } else{
-      if (modalPresupuesto.style.display === 'flex') {
-        modalPresupuesto.style.display = 'none';
-      }
 
-      //Obtenemos el número puro quitando todos los símbolos y comas
-      let presupuesto = inputPresupuesto.value;
-      presupuesto = Utils.normalizarMonto(presupuesto);
-
-      //Guardamos el nuevo presupuesto en localStorage
-      localStorage.setItem('valorPresupuesto', presupuesto);
-      Gasto.calcularPresupuestoConsumido();
+    //Cerramos la ventana modal del presupuesto
+    if (modalPresupuesto.style.display === 'flex') {
+      modalPresupuesto.style.display = 'none';
     }
-    
+
+    //Obtenemos el número puro quitando todos los símbolos y comas
+    let presupuesto = inputPresupuesto.value;
+    presupuesto = Utils.normalizarMonto(presupuesto);
+
+    //Guardamos el nuevo presupuesto en localStorage
+    localStorage.setItem('valorPresupuesto', presupuesto);
+    Gasto.calcularPresupuestoConsumido();
   }
 
 
